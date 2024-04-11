@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    pull_policy: always
+    volumes:
+      - ./config:/config
+      - ./cache:/cache
+      - /path/to/your/media/folder:/media
+    ports:
+      - "8096:8096"
+    restart: unless-stopped

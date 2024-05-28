@@ -20,7 +20,6 @@ env:
 jobs:
   first-job:
     name: First Test Job
-
     runs-on: ubuntu-latest
 
     steps:

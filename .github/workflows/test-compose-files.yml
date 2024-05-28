@@ -42,7 +42,8 @@ jobs:
       run: |
         cd ./docker-compose/jellyfin
         docker-compose up -d
-        docker inspect jellyfin
+        CONT=$(docker ps -q | head -n 1)
+        echo $CONT
 
     - name: Spinning up the kavita container
       if: ${{ env.CONTAINER == 'kavita' }}

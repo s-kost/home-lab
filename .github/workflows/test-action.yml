@@ -42,6 +42,6 @@ jobs:
       if: ${{ env.CONTAINER == 'jellyfin' }}
       run: |
         cd ./docker-compose/jellyfin
-        docker-compose up
+        docker-compose up -d
       
 

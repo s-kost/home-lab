@@ -43,6 +43,7 @@ jobs:
         cd ./docker-compose/jellyfin
         docker-compose up -d
         CONT=$(docker ps -q | head -n 1)
+        cd ../..
         echo $(docker inspect $CONT) >> container-test.txt
 
     - name: Spinning up the kavita container

@@ -19,5 +19,7 @@ jobs:
       run: echo "This is my first Github Actions Workflow"
 
     - name: Trying to print the contents of the directories
-      run: echo ${ ls -lha $HOME }
+      run: |
+        echo "Listing all directories in $HOME"
+        echo $(ls -lha $HOME)
 

@@ -33,7 +33,7 @@ jobs:
         ls -lh
 
     - name: Spinning up the chosen container
-      if: ${{ github.event.inputs.Container == "jellyfin" }}
+      if: ${{ github.event.inputs.Container == 'jellyfin' }}
       run: |
         cd docker-compse/jellyfin
         sudo docker-compose up

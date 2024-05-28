@@ -42,11 +42,13 @@ jobs:
       run: |
         cd ./docker-compose/jellyfin
         docker-compose up -d
+        docker inspect jellyfin
 
     - name: Spinning up the kavita container
       if: ${{ env.CONTAINER == 'kavita' }}
       run: |
         cd ./docker-compose/kavita
         docker-compose up -d
+        docker inspect kavita
       
 

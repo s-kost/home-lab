@@ -24,7 +24,7 @@ jobs:
 
     steps:
     - name: Using my first GitHub Action to copy the code to the runner
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Running my first bash command using GitHub Actions
       run: echo "This is my first Github Actions Workflow"
@@ -37,13 +37,13 @@ jobs:
         echo "Listing all directories in the working directory"
         ls -lh
 
-    - name: Spinning up the jellyfin container
+    - name: Spinning up and inspecting the jellyfin container
       if: ${{ env.CONTAINER == 'jellyfin' }}
       run: |
         cd ./docker-compose/jellyfin
         docker-compose up -d
         CONT=$(docker ps -q | head -n 1)
-        echo $CONT
+        docker inspect $CONT
 
     - name: Spinning up the kavita container
       if: ${{ env.CONTAINER == 'kavita' }}

@@ -9,6 +9,7 @@ on:
         description: Container
         required: true
         type: choice
+        options:
           - jellyfin
           - kavita
 

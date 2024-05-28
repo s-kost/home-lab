@@ -20,6 +20,6 @@ jobs:
 
     - name: Trying to print the contents of the directories
       run: |
-        echo "Listing all directories in $HOME"
-        echo $(ls $HOME)
+        echo "Listing all directories in the working directory"
+        ls -lh
 

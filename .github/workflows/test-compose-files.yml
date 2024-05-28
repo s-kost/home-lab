@@ -1,4 +1,4 @@
-# This is my first try at creating Workflows
+h# This is my first try at creating Workflows
 
 name: Test GitHub Actions
 
@@ -43,7 +43,7 @@ jobs:
         cd ./docker-compose/jellyfin
         docker-compose up -d
         CONT=$(docker ps -q | head -n 1)
-        docker inspect $CONT
+        echo $(docker inspect $CONT) >> container-test.txt
 
     - name: Spinning up the kavita container
       if: ${{ env.CONTAINER == 'kavita' }}
@@ -51,5 +51,12 @@ jobs:
         cd ./docker-compose/kavita
         docker-compose up -d
         docker inspect kavita
+
+    - name: Uploading result of 'docker inspect' command
+      uses: actions/upload-artifact@v4
+      with:
+        name: container-test.txt
+        path: container-test.txt
+        retention-days: 5
       
 

@@ -8,6 +8,7 @@ on:
       spin-up-container:
         description: Container
         required: true
+        default: jellyfin
         type: choice
         options:
           - jellyfin

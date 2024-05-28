@@ -2,7 +2,9 @@
 
 name: Test GitHub Actions
 
-on: 
+on:
+  push:
+    branches: [ master ]
   workflow_dispatch:
     inputs:
       spin-up-container:
@@ -51,12 +53,14 @@ jobs:
       run: |
         cd ./docker-compose/kavita
         docker-compose up -d
-        docker inspect kavita
+        CONT=$(docker ps -q | head -n 1)
+        cd ../..
+        echo $(docker inspect $CONT) >> container-test.txt
 
     - name: Uploading result of 'docker inspect' command
       uses: actions/upload-artifact@v4
       with:
-        name: container-test.txt
+        name: container-test
         path: container-test.txt
         retention-days: 5
       

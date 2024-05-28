@@ -1,0 +1,20 @@
+# This is my first try at creating Workflows
+
+name: Test GitHub Actions
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    name: First Test Job
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Using my first GitHub Action to copy the code to the runner
+      uses: actions/checkout@v2
+
+    - name: Running my first bash command using GitHub Actions
+      run: echo "This is my first Github Actions Workflow"
+

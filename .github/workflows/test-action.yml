@@ -38,10 +38,16 @@ jobs:
         echo "Listing all directories in the working directory"
         ls -lh
 
-    - name: Spinning up the chosen container
+    - name: Spinning up the jellyfin container
       if: ${{ env.CONTAINER == 'jellyfin' }}
       run: |
         cd ./docker-compose/jellyfin
+        docker-compose up -d
+
+    - name: Spinning up the kavita container
+      if: ${{ env.CONTAINER == 'kavita' }}
+      run: |
+        cd ./docker-compose/kavita
         docker-compose up -d
       
 

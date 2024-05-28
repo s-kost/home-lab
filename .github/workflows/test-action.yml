@@ -15,7 +15,7 @@ on:
           - kavita
 
 env:
-  CONTAINER: ${{ github.event.inputs.container }}
+  CONTAINER: ${{ inputs.spin-up-container }}
 
 jobs:
   first-job:

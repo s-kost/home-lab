@@ -3,7 +3,14 @@
 name: Test GitHub Actions
 
 on: 
-  push:
+  workflow_dispatch:
+    inputs:
+      spin-up-container:
+        description: Container
+        required: true
+        type: choice
+          - jellyfin
+          - kavita
 
 jobs:
   first-job:
@@ -22,4 +29,10 @@ jobs:
       run: |
         echo "Listing all directories in the working directory"
         ls -lh
+
+    - name: Spinning up the chosen container
+      run: |
+        cd docker-compse/${{ github.event.inputs.Container }}
+        sudo docker-compose up
+      
 

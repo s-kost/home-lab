@@ -41,7 +41,7 @@ jobs:
     - name: Spinning up the chosen container
       if: ${{ env.CONTAINER == 'jellyfin' }}
       run: |
-        cd docker-compse/jellyfin
+        cd ./docker-compse/jellyfin
         sudo docker-compose up
       
 
